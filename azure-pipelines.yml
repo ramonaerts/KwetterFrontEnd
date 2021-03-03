@@ -23,6 +23,6 @@ steps:
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: 'Azure for Students Starter (836c1fb6-4638-45bb-8a36-7e1446e260b0)'
-    appType: 'webApp'
+    appType: 'webAppLinux'
     WebAppName: 'kwetterfrontend'
     packageForLinux: '$(System.DefaultWorkingDirectory)'
