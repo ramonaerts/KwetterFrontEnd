@@ -22,6 +22,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure for Students Starter (836c1fb6-4638-45bb-8a36-7e1446e260b0)'
     appType: 'webApp'
-    WebAppName: 
+    WebAppName: 'kwetterfrontend'
     packageForLinux: '$(System.DefaultWorkingDirectory)/_ramonaerts.KwetterFrontEnd/drop'
