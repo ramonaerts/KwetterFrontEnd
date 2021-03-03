@@ -19,8 +19,10 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
-- task: PublishBuildArtifacts@1
+- task: AzureRmWebAppDeployment@4
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure for Students Starter (836c1fb6-4638-45bb-8a36-7e1446e260b0)'
+    appType: 'webApp'
+    WebAppName: 'kwetterfrontend'
+    packageForLinux: '$(System.DefaultWorkingDirectory)'
