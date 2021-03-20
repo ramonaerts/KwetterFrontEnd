@@ -4,14 +4,12 @@
     background: #f5f9fa;
     padding: 50px;
     border-radius: 8px;
-    text-align: center;
     color: black;
   }
   
   .loginContainer .loginform input[type="password"],
   .loginContainer .loginform input[type="email"] {
     width: 100%;
-    border: 1px solid #ccc;
     padding: 8px;
     box-sizing: border-box;
   }
@@ -22,7 +20,7 @@
   
   .loginButton {
     background-color: rgb(71, 184, 95);
-    width: 50%;
+    width: 100%;
     border: none;
     padding: 8px;
     box-sizing: border-box;
