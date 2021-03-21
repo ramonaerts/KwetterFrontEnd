@@ -1,0 +1,17 @@
+.search{
+    transition: all .35s ease-out;
+    width: 200px;
+    height: 35px;
+    background-color: #ebebeb;
+    border: 1.8px solid #243342;
+    border-radius: 20px;
+    padding: 8px;
+    color: black;
+}
+
+.search:focus{
+    width:27%;
+    transition: all .35s ease-out;
+    border-radius: 5px;
+    outline: none;
+}
