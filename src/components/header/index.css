@@ -15,3 +15,8 @@
     border-radius: 5px;
     outline: none;
 }
+
+.bg-dark{
+    background-color:#161b22 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}

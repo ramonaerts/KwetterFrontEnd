@@ -1,0 +1,73 @@
+.tweet-card-container{
+    background-color: #0d1117;
+    border: 1px solid #414850;
+    border-radius: 6px;
+    margin: 10px 3px 10px 3px;
+    max-width:600px;
+    min-height:140px;
+}
+
+.tweet-content{
+    padding: 6px 6px 6px 6px;
+    text-align: -webkit-left;
+}
+
+.tweet-interaction{
+    text-align: -webkit-left;
+    display:flex;
+    border-top: 1px solid #414850;
+    -webkit-box-pack: justify;
+    justify-content: center;
+    padding-bottom: 2px;
+}
+
+.icon {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.tweet-card-bar{
+    top: 0;
+    width:auto;
+    height:50px;
+    background-color:#161b22;
+    border-bottom: 1px solid #414850;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.date {
+    display:flex;
+    float:right;    
+    margin-right:5px;
+    color:#8b8b8b;
+    font-size: 14px;
+}
+
+.profile-container{
+    display:flex;
+    float:left;
+    cursor: pointer;
+}
+
+.profile-image{
+    height:50px;
+    width:50px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.profile-data {
+    text-align: left;
+    margin-left: 5px;
+}
+
+.profile-name{
+    font-weight:bold;
+}
+
+.profile-link{
+    color:#8b8b8b;
+    cursor: pointer
+}

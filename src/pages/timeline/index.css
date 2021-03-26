@@ -1,0 +1,31 @@
+.timeline-container{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.header {
+    height: 56px;
+    width: 100%;
+}
+
+.left {
+    display: inline-block;
+    height: auto;
+    width: 25%;
+}
+
+.middle {
+    text-align: -webkit-center;
+    display: inline-block;
+    width: 700px;
+    height: auto;
+    border-right: solid 1px rgb(45, 45, 45);
+    border-left: solid 1px rgb(45, 45, 45);
+}
+
+.right {
+    display: inline-block;
+    height: auto;
+    width: 25%;
+}
