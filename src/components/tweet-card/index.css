@@ -10,20 +10,29 @@
 .tweet-content{
     padding: 6px 6px 6px 6px;
     text-align: -webkit-left;
+    cursor: pointer;
+}
+
+.tweet-content:hover{
+    background-color: #12171f;    
 }
 
 .tweet-interaction{
+    background-color: #0d1117;
     text-align: -webkit-left;
     display:flex;
     border-top: 1px solid #414850;
     -webkit-box-pack: justify;
     justify-content: center;
-    padding-bottom: 2px;
+    padding-bottom: 4px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
 
 .icon {
     margin-left: 5%;
     margin-right: 5%;
+    cursor: pointer;
 }
 
 .tweet-card-bar{
@@ -41,7 +50,12 @@
     float:right;    
     margin-right:5px;
     color:#8b8b8b;
+    cursor: pointer;
     font-size: 14px;
+}
+
+.date:hover{
+    text-decoration: underline;
 }
 
 .profile-container{
@@ -53,12 +67,13 @@
 .profile-image{
     height:50px;
     width:50px;
+    border-radius:50%;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.profile-data {
+.profile-names-container {
     text-align: left;
     margin-left: 5px;
 }
@@ -69,5 +84,9 @@
 
 .profile-link{
     color:#8b8b8b;
-    cursor: pointer
+    cursor: pointer;
+}
+
+.profile-container:hover .profile-name{
+    text-decoration: underline;
 }
