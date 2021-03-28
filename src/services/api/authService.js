@@ -9,7 +9,7 @@ class AuthService {
 
         setJwt(result.data.message);
 
-        return result.data.data;
+        return result.data;
     }
 }
 

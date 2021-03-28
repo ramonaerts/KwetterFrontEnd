@@ -2,9 +2,9 @@
     background-color: #0d1117;
     border: 1px solid #414850;
     border-radius: 6px;
-    margin: 10px 3px 10px 3px;
+    margin: 15px 3px 15px 3px;
     max-width:600px;
-    min-height:140px;
+    min-height:115px;
 }
 
 .tweet-content{
@@ -65,10 +65,10 @@
 }
 
 .profile-image{
-    height:50px;
-    width:50px;
+    height:48px;
+    width:48px;
     border-radius:50%;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }

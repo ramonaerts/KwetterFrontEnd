@@ -24,7 +24,7 @@
   }
   
   .loginButton {
-    background-color: rgb(71, 184, 95);
+    background-color:rgb(29, 161, 242);
     width: 100%;
     border: none;
     padding: 8px;
@@ -35,6 +35,5 @@
   }
   
   .loginButton:hover {
-    background-color: rgb(59, 145, 77);
     cursor: pointer;
   }

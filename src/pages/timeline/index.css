@@ -1,3 +1,37 @@
+.loading {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.loading:after{
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid rgb(29, 161, 242);
+    border-color: rgb(29, 161, 242) transparent rgb(29, 161, 242) transparent;
+    animation: loading 1.2s linear infinite;
+}
+
+@keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+  
 .timeline-container{
     display: flex;
     text-align: center;
@@ -36,7 +70,7 @@
     height:50px;
     font-weight:bold;
     margin-top:50px;
-    background-color: rgb(29 161 242);
+    background-color: rgb(29, 161, 242);
 }
 
 .send-tweet-content{

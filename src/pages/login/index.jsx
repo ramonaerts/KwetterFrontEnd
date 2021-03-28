@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import AuthService from "../../services/api/authService";
+import {Redirect} from "react-router-dom";
 import "./index.css";
 
 export default class Login extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   async login(event) {
     event.preventDefault();
 
@@ -12,7 +17,7 @@ export default class Login extends Component {
 
     const result = await AuthService.Login(formDataObj);
 
-    console.log(result);
+    if(result.isSuccess == true) window.location.pathname = "/timeline";
   }
 
     render(){
@@ -22,11 +27,9 @@ export default class Login extends Component {
             <Form className="loginform" onSubmit={this.login} id={"loginform"}>
               <h2>Login</h2>
               <Form.Group>
-                <Form.Label>Email address</Form.Label>
                 <Form.Control name="email" type="email" placeholder="Email address" />
               </Form.Group>
               <Form.Group>
-                <Form.Label>Password</Form.Label>
                 <Form.Control name="password" type="password" placeholder="Password" />
               </Form.Group>
               <Button className="loginButton" type="submit">Log in</Button>

@@ -3,13 +3,21 @@ import { Container, Form, Button, Modal } from "react-bootstrap"
 import "./index.css";
 import Header from "../../components/header";
 import TweetCard from "../../components/tweet-card";
+import TweetService from "../../services/api/tweetService";
 
 export default class Timeline extends Component {
   constructor() {
     super()
     this.state = {
-      show: false
+      show: false,
+      tweets: {},
+      isLoading: true
     };
+  }
+
+  async componentDidMount(){    
+    const tweets = await TweetService.GetOwnTweets();
+    this.setState({ tweets: {}, tweets: tweets, isLoading: false });
   }
 
   handleClose = () => {
@@ -25,6 +33,14 @@ export default class Timeline extends Component {
   }
   
   render(){
+    let { tweets } = this.state;
+    console.log(tweets);
+
+  
+      if (this.state.isLoading){
+        return <div className="loading"/>
+      }
+
       return (
         <div>
           <div className="header">
@@ -48,10 +64,9 @@ export default class Timeline extends Component {
               </Modal>
             </div>
             <div className="middle">
-              <TweetCard/>
-              <TweetCard/>
-              <TweetCard/>
-              <TweetCard/>
+              {tweets.map((tweet) => (
+                <TweetCard tweet={tweet}/>
+              ))}
             </div>
             <div className="right">
 
