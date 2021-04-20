@@ -1,7 +1,7 @@
 import Axios from "axios";
 import { setJwt } from "../jwt";
 
-const url = "https://localhost:5001/api/auth/";
+const url = "https://localhost:50001/api/auth/";
 
 class AuthService {
     async Login(data){

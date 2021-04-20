@@ -1,3 +1,7 @@
+h2 {
+  color: white;
+}
+
 .login{
   height: 100%;
   width: 100%;
@@ -6,10 +10,11 @@
 .loginContainer {
     width: 300px;
     margin: 50px auto;
-    background: #f5f9fa;
+    background: #171c23;
     padding: 50px;
     border-radius: 8px;
     color: black;
+    border: 1px solid #414850;
   }
   
   .loginContainer .loginform input[type="password"],
@@ -24,7 +29,7 @@
   }
   
   .loginButton {
-    background-color:rgb(29, 161, 242);
+    background-color:#5c339d;
     width: 100%;
     border: none;
     padding: 8px;
@@ -36,4 +41,13 @@
   
   .loginButton:hover {
     cursor: pointer;
+    background-color:#6941aa;
+  }
+
+  .loginButton:active {
+    background-color:#6941aa !important;
+  }
+
+  .loginButton::selection {
+    background-color:#6941aa !important;
   }

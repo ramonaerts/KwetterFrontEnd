@@ -19,7 +19,7 @@
     margin: 8px;
     border-radius: 50%;
     border: 6px solid rgb(29, 161, 242);
-    border-color: rgb(29, 161, 242) transparent rgb(29, 161, 242) transparent;
+    border-color: rgb(57, 179, 255) transparent #156190 transparent;
     animation: loading 1.2s linear infinite;
 }
 

@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-const url = "https://localhost:5001/api/tweet/";
+const url = "https://localhost:50001/api/tweet/";
 
 class TweetService {
     async GetOwnTweets(){
