@@ -13,6 +13,13 @@ export function setJwt(jwt) {
       sameSite: true,
     });
   }
+
+  export function getJwt(){
+    const cookie = new Cookies();
+    const token = cookie.get("Jwt");
+
+    return token;
+  }
   
   export function unsetJwt() {
     const cookie = new Cookies();

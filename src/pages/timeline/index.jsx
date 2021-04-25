@@ -28,8 +28,13 @@ export default class Timeline extends Component {
 		this.setState({ show: true });
   }
 
-  async tweet(){
+  async tweet(event){
+    event.preventDefault();
 
+    const formData = new FormData(event.target);
+    const formDataObj = Object.fromEntries(formData.entries());
+
+    await TweetService.SendTweet(formDataObj);
   }
   
   render(){
@@ -54,12 +59,12 @@ export default class Timeline extends Component {
                   <Modal.Title>Tweet</Modal.Title>
                 </Modal.Header>
                 <Form onSubmit={this.tweet}>
-                <Modal.Body>
-                  <Form.Control className="send-tweet-content" name="tweet" type="text" placeholder="Wat houdt je bezig?" />
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button className="send-button" type="submit">Tweet</Button>
-                </Modal.Footer>
+                  <Modal.Body>
+                    <Form.Control className="send-tweet-content" name="tweetcontent" type="text" placeholder="Wat houdt je bezig?" />
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button className="send-button" type="submit">Tweet</Button>
+                  </Modal.Footer>
                 </Form>
               </Modal>
             </div>
