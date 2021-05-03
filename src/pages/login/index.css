@@ -2,12 +2,12 @@ h2 {
   color: white;
 }
 
-.login{
+.auth{
   height: 100%;
   width: 100%;
 }
 
-.loginContainer {
+.authContainer {
     width: 300px;
     margin: 50px auto;
     background: #171c23;
@@ -17,18 +17,18 @@ h2 {
     border: 1px solid #414850;
   }
   
-  .loginContainer .loginform input[type="password"],
-  .loginContainer .loginform input[type="email"] {
+  .authContainer .loginform input[type="password"],
+  .authContainer .loginform input[type="email"] {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
   }
   
-  .loginContainer .loginform input {
+  .authContainer .loginform input {
     margin: 6px 0;
   }
   
-  .loginButton {
+  .authButton {
     background-color:#5c339d;
     width: 100%;
     border: none;
@@ -37,17 +37,18 @@ h2 {
     color: #fff;
     font-size: 1em;
     text-transform: uppercase;
+    margin-bottom:15px;
   }
   
-  .loginButton:hover {
+  .authButton:hover {
     cursor: pointer;
     background-color:#6941aa;
   }
 
-  .loginButton:active {
+  .authButton:active {
     background-color:#6941aa !important;
   }
 
-  .loginButton::selection {
+  .authButton::selection {
     background-color:#6941aa !important;
   }

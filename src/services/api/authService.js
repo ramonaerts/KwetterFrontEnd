@@ -11,6 +11,12 @@ class AuthService {
 
         return result.data;
     }
+
+    async Login(data){
+        var result = await Axios.post(url + "register", data);
+
+        return result.data;
+    }
 }
 
 export default new AuthService();
