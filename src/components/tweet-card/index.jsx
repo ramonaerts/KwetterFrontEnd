@@ -14,7 +14,7 @@ export default class Header extends Component {
             <div className="tweet-card-container">
                 <div className="tweet-card-bar">
                     <div className="tweet-profile-container">
-                        <div className="tweet-profile-image" style={{ backgroundImage: `url(https://localhost:50001/profile/images/mgk.png)`}}/>
+                        <div className="tweet-profile-image" style={{ backgroundImage: `url(https://localhost:50001/profile/images/${tweet.user.image})`}}/>
                         <div className="tweet-profile-names-container">
                             <div className="tweet-profile-name">{tweet.user.nickname}</div>
                             <div className="tweet-profile-link">@{tweet.user.username}</div>
