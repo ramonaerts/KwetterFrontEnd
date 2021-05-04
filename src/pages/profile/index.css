@@ -1,13 +1,39 @@
 .profile-container{
+    margin-top: 25px;
+    width: 250px;
     display:flex;
+    flex-flow:column;
 }
 
-.profileimage{
+.profileimage{    
     margin: 0 auto;
-    height:150px;
-    width:150px;
+    height:200px;
+    width:200px;
+    border: 1.8px solid #243342;
     border-radius:50%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.profile-names-container{
+    word-wrap: break-word;
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.profile-name{
+    font-weight:bold;
+    font-size:20px;
+}
+
+.profile-link{
+    color:#8b8b8b;
+    cursor: pointer;
+}
+
+.following{
+    margin-top: 10px;
+    font-size: 14px;
 }
