@@ -38,20 +38,26 @@
     justify-content: space-between;
 }
 
+.timeline-container > *{
+  min-width:0;
+  height:100%;
+}
+
 .header {
     height: 56px;
     width: 100%;
 }
 
 .left {
-    display: inline-block;
+    /* display: inline-block;
     height: auto;
-    width: 25%;
+    width: 25%; */
+    flex: 1;
 }
 
 .middle {
     text-align: -webkit-center;
-    display: inline-block;
+    /* display: inline-block; */
     width: 700px;
     height: auto;
     border-right: solid 1px rgb(45, 45, 45);
@@ -59,66 +65,8 @@
 }
 
 .right {
-    display: inline-block;
+    /* display: inline-block;
     height: auto;
-    width: 25%;
-}
-
-.tweet-button {
-    border-radius: 20px;
-    width:150px;
-    height:50px;
-    font-weight:bold;
-    margin-top:50px;
-    background-color:#5c339d;
-    border: none;
-}
-
-  .tweet-button:hover {
-    cursor: pointer;
-    background-color:#6941aa;
-  }
-
-  .tweet-button:active {
-    background-color:#6941aa !important;
-  }
-
-  .tweet-button:focus {
-    background-color:#6941aa;
-  }
-
-.send-tweet-content{
-    color:white;
-    background-color:#161b22;
-    border-color:#161b22;
-}
-.send-tweet-content:focus{
-    color:white;
-    background-color:#161b22;
-    border-color:#161b22;
-    outline: none;
-}
-
-.send-button {
-    border-radius:20px;
-    width:90px;
-    background-color:#5c339d;
-    border: none;
-}
-
-.send-button:hover {
-    cursor: pointer;
-    background-color:#6941aa;
-  }
-
-  .send-button:active {
-    background-color:#6941aa !important;
-  }
-
-  .send-button:focus {
-    background-color:#6941aa;
-  }
-
-.modal-content{
-    background-color: #161b22;
+    width: 25%; */
+    flex: 1;
 }

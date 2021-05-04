@@ -3,6 +3,7 @@ import React from "react";
 import routePaths from "../services/route-paths"
 import Login from "../pages/login"
 import Timeline from "../pages/timeline"
+import Profile from "../pages/profile"
 
 function Routes() {
     return (
@@ -10,6 +11,7 @@ function Routes() {
             <Switch>
                 <Route exact path={ routePaths.Login} component={Login}/>
                 <Route exact path={ routePaths.Timeline} component={Timeline}/>
+                <Route exact path={ routePaths.Profile} component={Profile}/>
             </Switch>
         </Router>
     )

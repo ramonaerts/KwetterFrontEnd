@@ -10,19 +10,18 @@ export default class Timeline extends Component {
   constructor() {
     super()
     this.state = {
-      show: false,
-      tweets: {},
-      isLoading: true
+      //tweets: {},
+      isLoading: false
     };
   }
 
   async componentDidMount(){    
-    const tweets = await TweetService.GetOwnTweets();
-    this.setState({ tweets: {}, tweets: tweets, isLoading: false });
+    // const tweets = await TweetService.GetOwnTweets();
+    // this.setState({ tweets: {}, tweets: tweets, isLoading: false });
   }
   
   render(){
-    let { tweets } = this.state;
+    //let { tweets } = this.state;
   
       if (this.state.isLoading){
         return <div className="loading"/>
@@ -35,12 +34,15 @@ export default class Timeline extends Component {
           </div>   
           <div className="timeline-container">         
             <div className="left">
-              <TweetModal/>
+                <div className="profile-container">
+                    <div className="profileimage" style={{ backgroundImage: `url(https://localhost:50001/profile/images/mgk.png)`}}/>
+                </div>                
             </div>
             <div className="middle">
-              {tweets.map((tweet) => (
+                {this.props.match.params.user}
+              {/* {tweets.map((tweet) => (
                 <TweetCard tweet={tweet}/>
-              ))}
+              ))} */}
             </div>
             <div className="right">
 

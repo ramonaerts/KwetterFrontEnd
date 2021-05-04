@@ -1,7 +1,8 @@
 const paths = {
     Root: "/",
     Login: "/login",
-    Timeline: "/timeline"
+    Timeline: "/timeline",
+    Profile: "/profile/:user"
 }
 
 export default paths;

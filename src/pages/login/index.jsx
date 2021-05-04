@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import AuthService from "../../services/api/authService";
+import UserService from "../../services/api/userService";
 import {Redirect} from "react-router-dom";
 import "./index.css";
-import { FaTemperatureLow } from "react-icons/fa";
 
 export default class Login extends Component {
   constructor(props) {
@@ -14,6 +14,7 @@ export default class Login extends Component {
   }
 
   async login(event) {
+    console.log("login");
     event.preventDefault();
 
     const formData = new FormData(event.target);
@@ -25,12 +26,13 @@ export default class Login extends Component {
   }
 
   async register(event) {
+    console.log("register");
     event.preventDefault();
 
     const formData = new FormData(event.target);
     const formDataObj = Object.fromEntries(formData.entries());
 
-    const result = await AuthService.Register(formDataObj);
+    const result = await UserService.Register(formDataObj);
 
     //if(result.isSuccess == true) window.location.pathname = "/timeline";
   }
