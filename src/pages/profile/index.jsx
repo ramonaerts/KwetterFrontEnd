@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Container, Form, Button, Modal } from "react-bootstrap"
 import "./index.css";
 import Header from "../../components/header";
 import TweetCard from "../../components/tweet-card";
 import TweetModal from "../../components/tweet-modal";
 import ProfileOverview from "../../components/profile-overview";
 import ProfileEditModal from "../../components/profile-edit-modal";
+import FollowButton from "../../components/follow-button";
 import TweetService from "../../services/api/tweetService";
 import ProfileService from "../../services/api/profileService";
 
@@ -47,7 +47,7 @@ export default class Timeline extends Component {
                   user.self === true ?
                     <ProfileEditModal user={user}/>
                   :
-                    <Button></Button>
+                    <FollowButton/>
                 }
                 <TweetModal/>             
             </div>
