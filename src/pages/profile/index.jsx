@@ -4,6 +4,7 @@ import "./index.css";
 import Header from "../../components/header";
 import TweetCard from "../../components/tweet-card";
 import TweetModal from "../../components/tweet-modal";
+import ProfileOverview from "../../components/profile-overview";
 import TweetService from "../../services/api/tweetService";
 import ProfileService from "../../services/api/profileService";
 import { VscVerified } from "react-icons/vsc"
@@ -41,14 +42,7 @@ export default class Timeline extends Component {
           </div>   
           <div className="timeline-container">         
             <div className="left">
-                <div className="profile-container">
-                    <div className="profileimage" style={{ backgroundImage: `url(https://localhost:50001/profile/images/${user.image})`}}/>
-                    <div className="profile-names-container">
-                        <div className="profile-name">{user.nickname} <VscVerified/></div> 
-                        <div className="profile-link">@{user.username}</div>
-                        <div className="following">Following: <b>10.510</b> · Followers: <b>159k</b></div>
-                    </div>
-                </div>   
+                <ProfileOverview user={user}/>
                 <TweetModal/>             
             </div>
             <div className="middle">            

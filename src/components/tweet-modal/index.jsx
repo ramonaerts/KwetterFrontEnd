@@ -4,8 +4,10 @@ import "./index.css";
 import TweetService from "../../services/api/tweetService";
 
 export default class Timeline extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
     this.state = {
       show: false,
       tweets: {},
@@ -17,11 +19,11 @@ export default class Timeline extends Component {
     this.setState({ isLoading: false });
   }
 
-  handleClose = () => {
+  handleClose(){
 		this.setState({ show: false });
 	}
 
-	handleShow = () => {
+	handleShow(){
 		this.setState({ show: true });
   }
 
