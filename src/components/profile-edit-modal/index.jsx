@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Form, Button, Modal } from "react-bootstrap"
 import "./index.css";
-import TweetService from "../../services/api/tweetService";
+import ProfileService from "../../services/api/profileService";
 
 export default class ProfileEditModal extends Component {
   constructor(props) {
@@ -9,7 +9,10 @@ export default class ProfileEditModal extends Component {
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.state = {
-      show: false,
+      show: false,      
+      id: props.user.id,
+      nickname: props.user.nickname,
+      email: props.user.email,
       isLoading: true
     };
   }
@@ -26,18 +29,28 @@ export default class ProfileEditModal extends Component {
 		this.setState({ show: true });
   }
 
-  async tweet(event){
+  handleNicknameChange(value){
+      this.setState({ nickname: value });
+  }
+
+  handleEmailChange(value){
+    this.setState({ email: value });
+}
+
+   editProfile = async(event) => {
     event.preventDefault();
 
     const formData = new FormData(event.target);
+    formData.append('id', this.state.id);
+
     const formDataObj = Object.fromEntries(formData.entries());
 
-    await TweetService.SendTweet(formDataObj);
+    console.log(formDataObj);
+
+    await ProfileService.EditProfile(formDataObj);
   }
   
   render(){
-  
-    let { user } = this.props;
 
       if (this.state.isLoading){
         return <div className="loading"/>
@@ -50,12 +63,12 @@ export default class ProfileEditModal extends Component {
                 <Modal.Header>
                     <Modal.Title>Profile</Modal.Title>
                 </Modal.Header>
-                <Form onSubmit={this.tweet}>
+                <Form onSubmit={this.editProfile}>
                     <Modal.Body>
                         <Form.Label>Nickname</Form.Label>
-                        <Form.Control className="edit-profile-content" name="nickname" type="text" value={user.nickname} placeholder="Nickname"/>
+                        <Form.Control className="edit-profile-content" name="nickname" type="text" value={this.state.nickname} onChange={e => this.handleNicknameChange(e.target.value)} placeholder="Nickname"/>
                         <Form.Label>Email</Form.Label>
-                        <Form.Control className="edit-profile-content" name="email" type="email" value={user.email} placeholder="Email"/>                        
+                        <Form.Control className="edit-profile-content" name="email" type="email" value={this.state.email} onChange={e => this.handleEmailChange(e.target.value)} placeholder="Email"/>                        
                     </Modal.Body>
                     <Modal.Footer>
                         <Button className="confirm-profile-button" type="submit">Confirm changes</Button>

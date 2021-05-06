@@ -13,6 +13,12 @@ class ProfileService {
 
         return result.data.data;
     }
+
+    async EditProfile(data){
+        var result = await Axios.put(url + "edit", data, config);
+
+        return result.data;
+    }
 }
 
 export default new ProfileService();
