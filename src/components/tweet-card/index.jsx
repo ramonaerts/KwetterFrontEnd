@@ -3,7 +3,7 @@ import { AiOutlineHeart, AiOutlineShareAlt, AiOutlineRetweet } from "react-icons
 import { FaRegComment } from "react-icons/fa"
 import "./index.css";
 
-export default class Header extends Component {
+export default class TweetCard extends Component {
     constructor(props) {
         super(props);
       }

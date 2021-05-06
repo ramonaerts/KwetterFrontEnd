@@ -3,7 +3,7 @@ import { Container, Form, Button, Modal } from "react-bootstrap"
 import "./index.css";
 import TweetService from "../../services/api/tweetService";
 
-export default class TweetModal extends Component {
+export default class ProfileEditModal extends Component {
   constructor(props) {
     super(props)
     this.handleShow = this.handleShow.bind(this);
@@ -37,23 +37,28 @@ export default class TweetModal extends Component {
   
   render(){
   
+    let { user } = this.props;
+
       if (this.state.isLoading){
         return <div className="loading"/>
       }
 
       return (
         <div>
-            <Button className="tweet-button" onClick={this.handleShow}>Tweet</Button>
+            <Button className="tweet-button" onClick={this.handleShow}>Edit Profile</Button>
             <Modal className="tweet-modal" show={this.state.show} onHide={this.handleClose}>
                 <Modal.Header>
-                    <Modal.Title>Tweet</Modal.Title>
+                    <Modal.Title>Profile</Modal.Title>
                 </Modal.Header>
                 <Form onSubmit={this.tweet}>
                     <Modal.Body>
-                    <Form.Control className="send-tweet-content" name="tweetcontent" type="text" placeholder="Wat houdt je bezig?" />
+                        <Form.Label>Nickname</Form.Label>
+                        <Form.Control className="edit-profile-content" name="nickname" type="text" value={user.nickname} placeholder="Nickname"/>
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control className="edit-profile-content" name="email" type="email" value={user.email} placeholder="Email"/>                        
                     </Modal.Body>
                     <Modal.Footer>
-                    <Button className="send-button" type="submit">Tweet</Button>
+                        <Button className="confirm-profile-button" type="submit">Confirm changes</Button>
                     </Modal.Footer>
                 </Form>
             </Modal>

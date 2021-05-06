@@ -21,35 +21,36 @@
     background-color:#6941aa;
   }
 
-.send-tweet-content{
+.edit-profile-content{
+    margin-bottom:15px;
     color:white;
-    background-color:#161b22;
+    background-color:#243342;
     border-color:#161b22;
 }
-.send-tweet-content:focus{
+.edit-profile-content:focus{
     color:white;
     background-color:#161b22;
     border-color:#161b22;
     outline: none;
 }
 
-.send-button {
+.confirm-profile-button {
     border-radius:20px;
-    width:90px;
+    width:150px;
     background-color:#5c339d;
     border: none;
 }
 
-.send-button:hover {
+.confirm-profile-button:hover {
     cursor: pointer;
     background-color:#6941aa;
   }
 
-  .send-button:active {
+  .confirm-profile-button:active {
     background-color:#6941aa !important;
   }
 
-  .send-button:focus {
+  .confirm-profile-button:focus {
     background-color:#6941aa;
   }
 

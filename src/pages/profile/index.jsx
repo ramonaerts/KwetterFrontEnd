@@ -5,9 +5,9 @@ import Header from "../../components/header";
 import TweetCard from "../../components/tweet-card";
 import TweetModal from "../../components/tweet-modal";
 import ProfileOverview from "../../components/profile-overview";
+import ProfileEditModal from "../../components/profile-edit-modal";
 import TweetService from "../../services/api/tweetService";
 import ProfileService from "../../services/api/profileService";
-import { VscVerified } from "react-icons/vsc"
 
 export default class Timeline extends Component {
   constructor() {
@@ -43,6 +43,12 @@ export default class Timeline extends Component {
           <div className="timeline-container">         
             <div className="left">
                 <ProfileOverview user={user}/>
+                {
+                  user.self === true ?
+                    <ProfileEditModal user={user}/>
+                  :
+                    <Button></Button>
+                }
                 <TweetModal/>             
             </div>
             <div className="middle">            
