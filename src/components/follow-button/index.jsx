@@ -1,21 +1,29 @@
 import React, { Component } from "react";
 import { Container, Form, Button, Modal } from "react-bootstrap"
+import FollowService from "../../services/api/followService";
 import "./index.css";
 
 export default class FollowButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      follows: this.props,
+      follows: this.props.follows,
+      id: this.props.id,
       text: "Following"
     };
   }
 
-  // async componentDidMount(){
-  //   const follows = await FollowService.CheckIfFollows(this.props.id);    
+  followUser = async() => {
+    var result = await FollowService.FollowUser(this.state.id);
 
-  //   this.setState({ follows: follows });
-  // }
+    if(result.isSuccess == true) this.setState({follows: true});
+  }
+
+  unFollowUser = async() => {
+    var result = await FollowService.UnFollowUser(this.state.id);
+
+    if(result.isSuccess == true) this.setState({follows: false});
+  }
 
   setText(text){
     this.setState({ text: text });
@@ -29,10 +37,10 @@ export default class FollowButton extends Component {
       return (
         <div>
           {
-            follows.follows === false ?
-              <Button className="follow-button">Follow</Button>
+            follows === false ?
+              <Button className="follow-button" onClick={this.followUser}>Follow</Button>
             :
-              <Button className="unfollow-button" onMouseEnter={() => this.setText("Unfollow")} onMouseLeave={() => this.setText("Following")}>{text}</Button>
+              <Button className="unfollow-button" onClick={this.unFollowUser} onMouseEnter={() => this.setText("Unfollow")} onMouseLeave={() => this.setText("Following")}>{text}</Button>
           }            
         </div>
       );

@@ -38,7 +38,7 @@
   .unfollow-button:hover {
     cursor: pointer;
     background-color:#ca2055;
-    transition: all 1s ease-out;
+    transition: all .4s ease-out;
   }
 
   .unfollow-button:active {

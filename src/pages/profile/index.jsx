@@ -49,7 +49,7 @@ export default class Timeline extends Component {
                   user.self === true ?
                     <ProfileEditModal user={user}/>
                   :
-                    <FollowButton follows={follows}/>
+                    <FollowButton follows={follows} id={user.id}/>
                 }
                 <TweetModal/>             
             </div>

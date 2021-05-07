@@ -9,15 +9,17 @@ const config = {
 
 class ProfileService {
     async FollowUser(id){
-        var result = await Axios.post(url + "follow", id, config);
+        var result = await Axios.post(url + "follow", {
+            id: id
+        }, config);
 
-        return result.data.data;
+        return result.data;
     }
 
     async UnFollowUser(id){
         var result = await Axios.delete(url + id, config);
 
-        return result.data.data;
+        return result.data;
     }
 
     async CheckIfFollows(id){
