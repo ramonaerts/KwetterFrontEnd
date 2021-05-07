@@ -24,3 +24,27 @@
   .follow-button:focus {
     background-color:#6941aa;
   }
+
+.unfollow-button{
+  border-radius: 20px;
+  width:150px;
+  height:50px;
+  font-weight:bold;
+  margin-top:30px;
+  background-color:#5c339d;
+  border: none;
+}
+
+  .unfollow-button:hover {
+    cursor: pointer;
+    background-color:#ca2055;
+    transition: all 1s ease-out;
+  }
+
+  .unfollow-button:active {
+    background-color:#6941aa !important;
+  }
+
+  .unfollow-button:focus {
+    background-color:#6941aa;
+  }

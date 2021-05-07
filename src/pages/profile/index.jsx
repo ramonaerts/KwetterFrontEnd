@@ -8,6 +8,7 @@ import ProfileEditModal from "../../components/profile-edit-modal";
 import FollowButton from "../../components/follow-button";
 import TweetService from "../../services/api/tweetService";
 import ProfileService from "../../services/api/profileService";
+import FollowService from "../../services/api/followService";
 
 export default class Timeline extends Component {
   constructor() {
@@ -15,6 +16,7 @@ export default class Timeline extends Component {
     this.state = {
       tweets: {},
       user: {},
+      follows: false,
       isLoading: true
     };
   }
@@ -22,14 +24,14 @@ export default class Timeline extends Component {
   async componentDidMount(){    
     const user = await ProfileService.GetProfileByUsername(this.props.match.params.user);
     const tweets = await TweetService.GetOwnTweets();
-    this.setState({ tweets: {}, tweets: tweets, user: user, isLoading: false });
+    const follows = await FollowService.CheckIfFollows(user.id);
+    this.setState({ follows: follows, tweets: {}, tweets: tweets, user: user, isLoading: false });
   }
   
   render(){
     let { tweets } = this.state;
     let { user } = this.state;
-
-    console.log(user);
+    let { follows } = this.state;
   
       if (this.state.isLoading){
         return <div className="loading"/>
@@ -47,7 +49,7 @@ export default class Timeline extends Component {
                   user.self === true ?
                     <ProfileEditModal user={user}/>
                   :
-                    <FollowButton/>
+                    <FollowButton follows={follows}/>
                 }
                 <TweetModal/>             
             </div>
