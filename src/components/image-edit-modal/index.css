@@ -1,0 +1,35 @@
+.edit-image{
+    background-color: rgba(0, 0, 0, 0.45);
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
+  }
+  
+  .profileimageinput {
+    width: 100%;
+    color:white;
+    background-color:#243342;
+    border-color:#161b22;
+    border-radius: 20px;
+    padding: 8px;
+  }
+  
+  .profileimageinput:focus {
+    border-radius: 0px;
+  }
+
+.imagepreview{    
+    margin: 0 auto;
+    height:200px;
+    width:200px;
+    border: 1.8px solid #243342;
+    border-radius:50%;
+    display: block;
+    object-fit: cover;
+}

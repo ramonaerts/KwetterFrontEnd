@@ -45,8 +45,7 @@ export default class Timeline extends Component {
           <div className="timeline-container">         
             <div className="left">
                 <ProfileOverview user={user}/>
-                {
-                  user.self === true ?
+                { user.self === true ?
                     <ProfileEditModal user={user}/>
                   :
                     <FollowButton follows={follows} id={user.id}/>

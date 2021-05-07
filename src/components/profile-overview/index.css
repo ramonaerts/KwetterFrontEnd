@@ -11,6 +11,8 @@
     width:200px;
     border: 1.8px solid #243342;
     border-radius:50%;
+    position: relative;
+    overflow:hidden;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
