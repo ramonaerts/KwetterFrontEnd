@@ -34,6 +34,14 @@ export default class ImageEditModal extends Component {
 
     this.setState({ preview: URL.createObjectURL(e.target.files[0])})
 
+    let file = e.target.files[0];
+
+    this.getBase64(file)
+      .then(result => {
+        file["base64"] = result;
+        console.log("File Is", file);
+      });
+
     var files = e.target.files;
     var filesArr = Array.prototype.slice.call(files);     
 
@@ -41,13 +49,36 @@ export default class ImageEditModal extends Component {
     else this.setState({ files: [...this.state.files, ...filesArr], filename: filesArr[0].name, submitImage: false });      
   }
 
-  async editImage(event){
-    // event.preventDefault();
+  getBase64 = (file) => {
+    return new Promise(resolve => {
+      let fileInfo;
+      let baseURL = "";
+      // Make new FileReader
+      let reader = new FileReader();
 
-    // const formData = new FormData(event.target);
-    // const formDataObj = Object.fromEntries(formData.entries());
+      // Convert the file to base64 text
+      reader.readAsDataURL(file);
 
-    // await TweetService.SendTweet(formDataObj);
+      // on reader load somthing...
+      reader.onload = () => {
+        // Make a fileInfo Object
+        console.log("Called", reader);
+        baseURL = reader.result;
+        console.log(baseURL);
+        resolve(baseURL);
+      };
+      console.log(fileInfo);
+    });
+  };
+
+  editImage = async(event) => {
+    event.preventDefault();
+
+    const file = event.target.target;
+
+    console.log(file);
+
+    //await TweetService.SendTweet(formDataObj);
   }
   
   render(){
