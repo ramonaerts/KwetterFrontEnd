@@ -8,8 +8,10 @@ const config = {
 }
 
 class FileService {
-    async EditProfileImage(data){
-        var result = await Axios.post(url + "edit", data, config);
+    async EditProfileImage(image){
+        var result = await Axios.post(url + "edit", {
+            image: image
+        }, config);
 
         return result.data;
     }
