@@ -22,6 +22,8 @@ export default class Login extends Component {
 
     const result = await AuthService.Login(formDataObj);
 
+    document.getElementById("authform").reset();
+
     if(result.isSuccess == true) window.location.pathname = "/timeline";
   }
 
@@ -34,11 +36,15 @@ export default class Login extends Component {
 
     const result = await UserService.Register(formDataObj);
 
+    document.getElementById("authform").reset();
+
     //if(result.isSuccess == true) window.location.pathname = "/timeline";
   }
 
   switchForm = () => {
     const { login } = this.state;
+
+    document.getElementById("authform").reset();
 
     if(login === true){
       this.setState({ login: false });

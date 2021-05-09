@@ -10,9 +10,9 @@ class AuthService {
 
         setJwt(result.data.message);
 
-        var user = await ProfileService.GetOwnProfile();
+        // var user = await ProfileService.GetOwnProfile();
 
-        localStorage.setItem("username", user.username)
+        // localStorage.setItem("username", user.username)
 
         return result.data;
     }

@@ -21,7 +21,7 @@ export default class TweetCard extends Component {
                         </div>
                     </div>
                     <div className="date">
-                        25-04-2021
+                        10-05-2021
                     </div>
                 </div>
                 <div className="tweet-content">
