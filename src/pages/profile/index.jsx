@@ -52,10 +52,17 @@ export default class Timeline extends Component {
                 }
                 <TweetModal/>             
             </div>
-            <div className="middle">            
-              {tweets.map((tweet) => (
-                <TweetCard tweet={tweet}/>
-              ))}
+            <div className="middle">  
+            {
+              tweets.length === 0 ?
+                <div className="no-tweets-container">This user has not posted anything.</div>
+              :
+              <div>
+                {tweets.map((tweet) => (
+                  <TweetCard tweet={tweet}/>
+                ))}
+              </div>
+            }         
             </div>
             <div className="right">
 

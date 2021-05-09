@@ -14,6 +14,12 @@ class ProfileService {
         return result.data.data;
     }
 
+    async GetOwnProfile(){
+        var result = await Axios.get(url + "@me", config);
+
+        return result.data.data;
+    }
+
     async EditProfile(data){
         var result = await Axios.put(url + "edit", data, config);
 
