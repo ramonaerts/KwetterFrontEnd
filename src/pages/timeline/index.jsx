@@ -4,7 +4,7 @@ import "./index.css";
 import Header from "../../components/header";
 import TweetCard from "../../components/tweet-card";
 import TweetModal from "../../components/tweet-modal";
-import TweetService from "../../services/api/tweetService";
+import TimelineService from "../../services/api/timelineService";
 
 export default class Timeline extends Component {
   constructor() {
@@ -17,7 +17,7 @@ export default class Timeline extends Component {
   }
 
   async componentDidMount(){    
-    const tweets = await TweetService.GetOwnTweets();
+    const tweets = await TimelineService.GetTimelineTweets();
     this.setState({ tweets: {}, tweets: tweets, isLoading: false });
   }
   

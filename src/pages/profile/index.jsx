@@ -23,7 +23,7 @@ export default class Timeline extends Component {
 
   async componentDidMount(){    
     const user = await ProfileService.GetProfileByUsername(this.props.match.params.user);
-    const tweets = await TweetService.GetOwnTweets();
+    const tweets = await TweetService.GetProfileTweets(user.id);
     const follows = await FollowService.CheckIfFollows(user.id);
     this.setState({ follows: follows, tweets: {}, tweets: tweets, user: user, isLoading: false });
   }

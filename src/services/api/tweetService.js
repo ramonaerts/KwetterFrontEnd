@@ -11,8 +11,11 @@ class TweetService {
     async GetOwnTweets(){
         var result = await Axios.get(url + "tweets", config);
 
-        console.log("here?");
-        console.log(result);
+        return result.data.data;
+    }
+
+    async GetProfileTweets(id){
+        var result = await Axios.get(url + id, config);
 
         return result.data.data;
     }
