@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { AiOutlineHeart, AiOutlineShareAlt, AiOutlineRetweet } from "react-icons/ai"
+import { AiOutlineHeart, AiFillHeart, AiOutlineShareAlt, AiOutlineRetweet } from "react-icons/ai"
 import { FaRegComment } from "react-icons/fa"
 import "./index.css";
 
@@ -21,7 +21,7 @@ export default class TweetCard extends Component {
                         </div>
                     </div>
                     <div className="date">
-                        10-05-2021
+                        27-05-2021
                     </div>
                 </div>
                 <div className="tweet-content">
@@ -29,7 +29,7 @@ export default class TweetCard extends Component {
                 </div>
                 <div className="tweet-interaction">
                     <a className="icon"><FaRegComment/></a>                    
-                    <a className="icon"><AiOutlineHeart/></a>   
+                    <a className="icon"><AiOutlineHeart/></a>    
                     <a className="icon"><AiOutlineRetweet/></a>     
                     <a className="icon"><AiOutlineShareAlt/></a>                                     
                 </div>

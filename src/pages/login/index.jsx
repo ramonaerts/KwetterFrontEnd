@@ -13,6 +13,10 @@ export default class Login extends Component {
     };
   }
 
+  componentDidMount(){
+    AuthService.Logout();
+  }
+
   async login(event) {
     console.log("login");
     event.preventDefault();
@@ -23,6 +27,8 @@ export default class Login extends Component {
     const result = await AuthService.Login(formDataObj);
 
     document.getElementById("authform").reset();
+
+    console.log(result);
 
     if(result.isSuccess == true) window.location.pathname = "/timeline";
   }

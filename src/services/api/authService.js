@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { setJwt } from "../jwt";
+import { setJwt, unsetJwt } from "../jwt";
 import ProfileService from "../api/profileService";
 
 const url = "https://localhost:50001/api/auth/";
@@ -15,6 +15,10 @@ class AuthService {
         // localStorage.setItem("username", user.username)
 
         return result.data;
+    }
+
+    async Logout(){
+        unsetJwt();
     }
 }
 

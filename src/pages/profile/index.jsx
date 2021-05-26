@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Form, Button } from "react-bootstrap";
 import "./index.css";
 import Header from "../../components/header";
 import TweetCard from "../../components/tweet-card";
@@ -9,6 +10,7 @@ import FollowButton from "../../components/follow-button";
 import TweetService from "../../services/api/tweetService";
 import ProfileService from "../../services/api/profileService";
 import FollowService from "../../services/api/followService";
+import UserService from "../../services/api/userService";
 
 export default class Timeline extends Component {
   constructor() {
@@ -26,6 +28,14 @@ export default class Timeline extends Component {
     const tweets = await TweetService.GetProfileTweets(user.id);
     const follows = await FollowService.CheckIfFollows(user.id);
     this.setState({ follows: follows, tweets: {}, tweets: tweets, user: user, isLoading: false });
+  }
+
+  async forgetUser(event){
+    event.preventDefault();
+
+    await UserService.ForgetUser();
+
+    window.location.pathname = "/login";
   }
   
   render(){
@@ -50,7 +60,10 @@ export default class Timeline extends Component {
                   :
                     <FollowButton follows={follows} id={user.id}/>
                 }
-                <TweetModal/>             
+                <TweetModal/>
+                <Form onSubmit={this.forgetUser}>
+                  <Button className="forget-me-button" variant="danger" type="submit">Remove Profile</Button>
+                </Form>
             </div>
             <div className="middle">  
             {

@@ -13,6 +13,7 @@ export default class Header extends Component {
               <Nav.Link href={RouterPaths.Timeline}>Timeline</Nav.Link>
               <Nav.Link href="#trending">Trending</Nav.Link>
               <Nav.Link href={"profile/" + localStorage.getItem("username")}>Profile</Nav.Link>
+              <Nav.Link href={RouterPaths.Login}>Logout</Nav.Link>
             </Nav>
           </Navbar>
           );
