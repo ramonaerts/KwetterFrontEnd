@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Form, Button, Modal } from "react-bootstrap"
+import { Form, Button, Modal } from "react-bootstrap"
 import "./index.css";
 import TweetService from "../../services/api/tweetService";
 

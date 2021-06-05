@@ -1,6 +1,5 @@
 import Axios from "axios";
 import { setJwt, unsetJwt } from "../jwt";
-import ProfileService from "../api/profileService";
 
 const url = "https://localhost:50001/api/auth/";
 

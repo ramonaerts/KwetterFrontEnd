@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Form, Button, Modal } from "react-bootstrap"
+import { Form, Button, Modal } from "react-bootstrap"
 import "./index.css";
 import FileService from "../../services/api/fileService";
 
@@ -91,7 +91,7 @@ export default class ImageEditModal extends Component {
                             <Form.Control name="tweetcontent" type="file" accept="image/x-png,image/gif,image/jpeg" onChange={this.onImageChange}/>
                             {filename}
                         </Form.Label>    
-                        <img className="imagepreview" src={preview}/>                    
+                        <img className="imagepreview" src={preview} alt="new image"/>                    
                     </Modal.Body>
                     <Modal.Footer>
                         <Button className="confirm-profile-button" type="submit" disabled={submitImage}>Confirm changes</Button>

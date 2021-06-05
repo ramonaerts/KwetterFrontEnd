@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import "./index.css";
-import { VscVerified, VscEdit } from "react-icons/vsc"
+import { VscVerified } from "react-icons/vsc"
 import ImageEditModal from "../../components/image-edit-modal";
 
 export default class ProfileOverview extends Component {
-  constructor(props) {
-    super(props);
-  }
   
   render(){
     let { user } = this.props;

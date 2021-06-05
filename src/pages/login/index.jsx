@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Container, Form, Button } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import AuthService from "../../services/api/authService";
 import UserService from "../../services/api/userService";
-import {Redirect} from "react-router-dom";
 import "./index.css";
 
 export default class Login extends Component {
@@ -30,7 +29,7 @@ export default class Login extends Component {
 
     console.log(result);
 
-    if(result.isSuccess == true) window.location.pathname = "/timeline";
+    if(result.isSuccess === true) window.location.pathname = "/timeline";
   }
 
   async register(event) {
@@ -40,11 +39,9 @@ export default class Login extends Component {
     const formData = new FormData(event.target);
     const formDataObj = Object.fromEntries(formData.entries());
 
-    const result = await UserService.Register(formDataObj);
+    await UserService.Register(formDataObj);
 
     document.getElementById("authform").reset();
-
-    //if(result.isSuccess == true) window.location.pathname = "/timeline";
   }
 
   switchForm = () => {

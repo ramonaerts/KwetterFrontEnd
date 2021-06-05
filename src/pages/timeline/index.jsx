@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Container, Form, Button, Modal } from "react-bootstrap"
 import "./index.css";
 import Header from "../../components/header";
 import TweetCard from "../../components/tweet-card";
@@ -18,7 +17,7 @@ export default class Timeline extends Component {
 
   async componentDidMount(){    
     const tweets = await TimelineService.GetTimelineTweets();
-    this.setState({ tweets: {}, tweets: tweets, isLoading: false });
+    this.setState({ tweets: tweets, isLoading: false });
   }
   
   render(){
