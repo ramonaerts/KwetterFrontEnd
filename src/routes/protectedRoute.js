@@ -5,7 +5,7 @@ import { getClaim } from "../services/jwt";
 import routePaths from "../services/route-paths";
 
 const ProtectedRoute = ({ component: Component, user, roles, ...rest }) => {
-    const jwt = new Cookies()?.get("jwt");
+    const jwt = new Cookies()?.get("Jwt");
   
     return (
       <Route

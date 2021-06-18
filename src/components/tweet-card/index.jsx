@@ -1,12 +1,38 @@
 import React, { Component } from "react";
-import { AiOutlineHeart, AiOutlineShareAlt, AiOutlineRetweet } from "react-icons/ai"
+import { AiOutlineHeart, AiOutlineShareAlt, AiOutlineRetweet, AiFillHeart } from "react-icons/ai"
 import { FaRegComment } from "react-icons/fa"
+import LikeService from "../../services/api/likeService";
 import "./index.css";
 
 export default class TweetCard extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+          likeCount: 0,
+          liked: false
+        };
+      }
+
+    async componentDidMount(){    
+        const result = await LikeService.GetLikes(this.props.tweet.id);
+        this.setState({ likeCount: result.likeCount, liked: result.liked });
+      }
+
+    async likeTweet(tweetId){
+        await LikeService.LikeTweet(tweetId);
+        this.setState({ likeCount: this.state.likeCount + 1, liked: true});
+    }
+
+    async unlikeTweet(tweetId){
+        await LikeService.UnlikeTweet(tweetId);
+        this.setState({ likeCount: this.state.likeCount - 1, liked: false});
+    }
 
     render() {
-        let { tweet } = this.props
+        let { tweet } = this.props;
+        const { likeCount } = this.state;
+        const { liked } = this.state;
+
         return (
             <div className="tweet-card-container">
                 <div className="tweet-card-bar">
@@ -25,10 +51,15 @@ export default class TweetCard extends Component {
                     {tweet.tweetContent}
                 </div>
                 <div className="tweet-interaction">
-                    <a href={() => false} className="icon"><FaRegComment/></a>                    
-                    <a href={() => false} className="icon"><AiOutlineHeart/></a>    
-                    <a href={() => false} className="icon"><AiOutlineRetweet/></a>     
-                    <a href={() => false} className="icon"><AiOutlineShareAlt/></a>                                     
+                    <div className="icon"><FaRegComment/></div>
+                    {
+                        liked === true ?
+                            <div className="icon" onClick={() => this.unlikeTweet(tweet.id)}><AiFillHeart/> {likeCount}</div>
+                        :
+                            <div className="icon" onClick={() => this.likeTweet(tweet.id)}><AiOutlineHeart/> {likeCount}</div>
+                    }                
+                    <div className="icon"><AiOutlineRetweet/></div>
+                    <div className="icon"><AiOutlineShareAlt/></div>                                
                 </div>
             </div>
           );
