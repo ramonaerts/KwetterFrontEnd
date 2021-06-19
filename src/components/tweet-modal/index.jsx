@@ -33,6 +33,10 @@ export default class TweetModal extends Component {
     const formDataObj = Object.fromEntries(formData.entries());
 
     await TweetService.SendTweet(formDataObj);
+
+    window.dispatchEvent(
+      new CustomEvent("new-tweet")
+    );
   }
   
   render(){

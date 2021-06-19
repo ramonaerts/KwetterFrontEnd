@@ -32,6 +32,14 @@ export default class TweetCard extends Component {
 
     async deleteTweet(tweetId){
         await TweetService.DeleteTweet(tweetId);
+
+        window.dispatchEvent(
+            new CustomEvent("delete-tweet", {
+              bubbles: true,
+              composed: true,
+              detail: { tweetId: tweetId },
+            })
+          );
     }
 
     render() {

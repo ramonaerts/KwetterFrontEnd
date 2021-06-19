@@ -29,6 +29,14 @@ export default class Timeline extends Component {
     const follows = await FollowService.CheckIfFollows(user.id);
 
     this.setState({ follows: follows, tweets: tweets, user: user, isLoading: false });
+
+    window.addEventListener("delete-tweet", (e) => {
+      this.deleteTweet(e.detail.tweetId);
+    });
+
+    window.addEventListener("new-tweet", (e) => {
+      this.refreshTweets();
+    });
   }
 
   async forgetUser(event){
@@ -37,6 +45,20 @@ export default class Timeline extends Component {
     await UserService.ForgetUser();
 
     window.location.pathname = "/login";
+  }
+
+  deleteTweet(tweetId){
+    var tweets = this.state.tweets;
+    
+    var newTweets = tweets.filter(function(e) { return e.id !== tweetId });
+
+    this.setState({ tweets: newTweets });
+  }
+
+  async refreshTweets(){
+    const tweets = await TweetService.GetProfileTweets(this.state.user.id);
+
+    this.setState({ tweets: tweets });
   }
   
   render(){
