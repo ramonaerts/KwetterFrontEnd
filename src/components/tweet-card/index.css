@@ -52,6 +52,39 @@ svg {
     color:#8463bb;
 }
 
+.trash-icon {
+    margin-left: 5%;
+    margin-right: 5%;
+    cursor: pointer;
+    color: #6a3ab8;
+}
+
+.trash-icon:hover{
+    color: #e0245e;
+}
+
+.like-icon{
+    margin-left: 5%;
+    margin-right: 5%;
+    cursor: pointer;
+    color: #6a3ab8;
+}
+
+.like-icon:hover{
+    color: #e0245e;
+}
+
+.liked-icon{
+    margin-left: 5%;
+    margin-right: 5%;
+    cursor: pointer;
+    color: #e0245e;
+}
+
+.liked-icon:hover{
+    color: #b11f4d;
+}
+
 .tweet-card-bar{
     top: 0;
     width:auto;

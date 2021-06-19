@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { AiOutlineHeart, AiOutlineShareAlt, AiOutlineRetweet, AiFillHeart } from "react-icons/ai"
+import { BsTrash } from "react-icons/bs"
 import { FaRegComment } from "react-icons/fa"
 import LikeService from "../../services/api/likeService";
+import TweetService from "../../services/api/tweetService";
 import "./index.css";
 
 export default class TweetCard extends Component {
@@ -26,6 +28,10 @@ export default class TweetCard extends Component {
     async unlikeTweet(tweetId){
         await LikeService.UnlikeTweet(tweetId);
         this.setState({ likeCount: this.state.likeCount - 1, liked: false});
+    }
+
+    async deleteTweet(tweetId){
+        await TweetService.DeleteTweet(tweetId);
     }
 
     render() {
@@ -54,12 +60,13 @@ export default class TweetCard extends Component {
                     <div className="icon"><FaRegComment/></div>
                     {
                         liked === true ?
-                            <div className="icon" onClick={() => this.unlikeTweet(tweet.id)}><AiFillHeart/> {likeCount}</div>
+                            <div className="liked-icon" onClick={() => this.unlikeTweet(tweet.id)}><AiFillHeart/> {likeCount}</div>
                         :
-                            <div className="icon" onClick={() => this.likeTweet(tweet.id)}><AiOutlineHeart/> {likeCount}</div>
+                            <div className="like-icon" onClick={() => this.likeTweet(tweet.id)}><AiOutlineHeart/> {likeCount}</div>
                     }                
                     <div className="icon"><AiOutlineRetweet/></div>
-                    <div className="icon"><AiOutlineShareAlt/></div>                                
+                    <div className="icon"><AiOutlineShareAlt/></div>
+                    <div className="trash-icon" onClick={() => this.deleteTweet(tweet.id)}><BsTrash/></div>
                 </div>
             </div>
           );

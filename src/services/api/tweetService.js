@@ -25,6 +25,12 @@ class TweetService {
 
         return result.data;
     }
+
+    async DeleteTweet(tweetId){
+        var result = await Axios.delete(url + tweetId, config)
+
+        return result.data;
+    }
 }
 
 export default new TweetService();
