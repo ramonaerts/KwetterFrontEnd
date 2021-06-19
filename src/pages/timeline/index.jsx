@@ -3,6 +3,7 @@ import "./index.css";
 import Header from "../../components/header";
 import TweetCard from "../../components/tweet-card";
 import TweetModal from "../../components/tweet-modal";
+import Trending from "../../components/trending";
 import TimelineService from "../../services/api/timelineService";
 
 export default class Timeline extends Component {
@@ -49,7 +50,7 @@ export default class Timeline extends Component {
             }  
             </div>
             <div className="right">
-
+              <Trending/>
             </div>
           </div>
         </div>

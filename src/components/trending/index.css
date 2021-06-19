@@ -1,0 +1,33 @@
+.trending-container{
+    margin-top: 15px;
+    margin-left: 35px;
+    margin-right: 50px;
+    background-color: #161b22;
+    border: 1px solid #414850;
+    border-radius: 6px;
+}
+
+.trending-header{
+    font-size: 25px;
+}
+
+.trending-content{
+    background-color: #0d1117;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.trending-item{
+    border-top: 1px solid #414850;
+    font-size: 17px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 7px;
+    text-align: left;
+}
+
+.item-count{
+    margin-top: 5px;
+    font-size: 12px;
+    color: #8b8b8b;
+}
