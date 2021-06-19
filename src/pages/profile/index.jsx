@@ -27,6 +27,7 @@ export default class Timeline extends Component {
     const user = await ProfileService.GetProfileByUsername(this.props.match.params.user);
     const tweets = await TweetService.GetProfileTweets(user.id);
     const follows = await FollowService.CheckIfFollows(user.id);
+
     this.setState({ follows: follows, tweets: tweets, user: user, isLoading: false });
   }
 
@@ -61,9 +62,14 @@ export default class Timeline extends Component {
                     <FollowButton follows={follows} id={user.id}/>
                 }
                 <TweetModal/>
-                <Form onSubmit={this.forgetUser}>
-                  <Button className="forget-me-button" variant="danger" type="submit">Remove Profile</Button>
-                </Form>
+                { user.self === true ?
+                    <Form onSubmit={this.forgetUser}>
+                      <Button className="forget-me-button" variant="danger" type="submit">Remove Profile</Button>
+                    </Form>
+                  :
+                    <div></div>
+                }
+
             </div>
             <div className="middle">  
             {

@@ -16,13 +16,27 @@ export default class FollowButton extends Component {
   followUser = async() => {
     var result = await FollowService.FollowUser(this.state.id);
 
-    if(result.isSuccess === true) this.setState({follows: true});
+    if(result.isSuccess === true){ 
+      this.setState({follows: true});
+
+      window.dispatchEvent(
+        new CustomEvent("follow-user")
+      );
+    }
+
+
   }
 
   unFollowUser = async() => {
     var result = await FollowService.UnFollowUser(this.state.id);
 
-    if(result.isSuccess === true) this.setState({follows: false});
+    if(result.isSuccess === true) {
+      this.setState({follows: false});
+
+      window.dispatchEvent(
+        new CustomEvent("unfollow-user")
+      );
+    }
   }
 
   setText(text){

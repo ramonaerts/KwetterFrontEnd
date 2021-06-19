@@ -7,7 +7,7 @@ const config = {
     headers: {Authorization: `Bearer ${getJwt()}`}
 }
 
-class ProfileService {
+class FollowService {
     async FollowUser(id){
         var result = await Axios.post(url + "follow", {
             id: id
@@ -27,6 +27,12 @@ class ProfileService {
 
         return result.data.data;
     }
+
+    async GetFollowCounts(id){
+        var result = await Axios.get(url + "count/" + id, config)
+
+        return result.data.data;
+    }
 }
 
-export default new ProfileService();
+export default new FollowService();
