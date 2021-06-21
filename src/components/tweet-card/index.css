@@ -70,6 +70,13 @@ svg {
     color: #6a3ab8;
 }
 
+.cancel-icon{
+    margin-left: 5%;
+    margin-right: 5%;
+    cursor: pointer;
+    color: #e0245e;
+}
+
 .like-icon:hover{
     color: #e0245e;
 }

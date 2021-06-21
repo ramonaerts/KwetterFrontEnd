@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import { AiOutlineHeart, AiOutlineShareAlt, AiOutlineRetweet, AiFillHeart } from "react-icons/ai"
 import { BsTrash } from "react-icons/bs"
 import { FaRegComment } from "react-icons/fa"
+import { FcCheckmark } from "react-icons/fc"
+import { ImCancelCircle } from "react-icons/im"
 import LikeService from "../../services/api/likeService";
 import TweetService from "../../services/api/tweetService";
+import { getClaim } from "../../services/jwt";
 import "./index.css";
 
 export default class TweetCard extends Component {
@@ -42,10 +45,32 @@ export default class TweetCard extends Component {
           );
     }
 
+    approveTweet(tweetId){
+        window.dispatchEvent(
+            new CustomEvent("approve-tweet", {
+              bubbles: true,
+              composed: true,
+              detail: { tweetId: tweetId },
+            })
+          );
+    }
+
+    unapproveTweet(tweetId){
+        window.dispatchEvent(
+            new CustomEvent("unapprove-tweet", {
+              bubbles: true,
+              composed: true,
+              detail: { tweetId: tweetId },
+            })
+          );
+    }
+
     render() {
         let { tweet } = this.props;
         const { likeCount } = this.state;
         const { liked } = this.state;
+
+        const Jwt = getClaim("role");
 
         return (
             <div className="tweet-card-container">
@@ -76,6 +101,12 @@ export default class TweetCard extends Component {
                     <div className="icon"><AiOutlineShareAlt/></div>
                     <div className="trash-icon" onClick={() => this.deleteTweet(tweet.id)}><BsTrash/></div>
                 </div>
+                {Jwt == "Moderator" && (
+                    <div className="tweet-interaction">              
+                        <div className="icon" onClick={() => this.approveTweet(tweet.id)}><FcCheckmark/></div>
+                        <div className="cancel-icon" onClick={() => this.unapproveTweet(tweet.id)}><ImCancelCircle/></div>
+                    </div>
+                )}
             </div>
           );
     }

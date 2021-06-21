@@ -1,0 +1,60 @@
+.moderation-header-container{
+    height: 75px;
+    width: auto;
+    border-bottom: 1px solid rgb(45, 45, 45);
+    justify-content: center;
+    display:flex;
+    -webkit-box-pack: justify;
+}
+
+.moderation-button{
+    height:38px;
+    margin-top: 19px;
+    margin-left: 4%;
+    margin-right: 4%;
+    background-color:#262d36;
+    border: none;
+    border-radius: 20px;
+    transition: all .35s ease-out;
+}
+
+.moderation-button:hover {
+    cursor: pointer;
+    transition: all .35s ease-out;
+    background-color:#38404b;
+    border-radius: 5px;
+  }
+
+  .moderation-button:active {
+    background-color:#38404b !important;
+  }
+
+  .moderation-button:focus {
+    background-color:#38404b;
+  }
+
+  .moderation-button-selected{
+    height:38px;
+    margin-top: 19px;
+    margin-left: 4%;
+    margin-right: 4%;
+    background-color:#38404b;
+    border: none;
+    cursor: default !important;
+    border-radius: 5px;
+}
+
+.moderation-button-selected:hover {
+    cursor: default !important;
+    transition: all .35s ease-out;
+    background-color:#38404b;
+    border-radius: 5px;
+  }
+
+  .moderation-button-selected:active {
+    background-color:#38404b !important;
+  }
+
+  .moderation-button-selected:focus {
+    background-color:#38404b;
+  }
