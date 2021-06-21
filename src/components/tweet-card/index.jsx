@@ -14,13 +14,17 @@ export default class TweetCard extends Component {
         super(props)
         this.state = {
           likeCount: 0,
+          mod: this.props.mod,
           liked: false
         };
       }
 
     async componentDidMount(){    
-        const result = await LikeService.GetLikes(this.props.tweet.id);
-        this.setState({ likeCount: result.likeCount, liked: result.liked });
+        await this.getLikes();
+
+        window.addEventListener("refresh-likes", () => {
+            this.getLikes();
+          });
       }
 
     async likeTweet(tweetId){
@@ -31,6 +35,11 @@ export default class TweetCard extends Component {
     async unlikeTweet(tweetId){
         await LikeService.UnlikeTweet(tweetId);
         this.setState({ likeCount: this.state.likeCount - 1, liked: false});
+    }
+
+    async getLikes(){
+        const result = await LikeService.GetLikes(this.props.tweet.id);
+        this.setState({ likeCount: result.likeCount, liked: result.liked });
     }
 
     async deleteTweet(tweetId){
@@ -52,7 +61,7 @@ export default class TweetCard extends Component {
               composed: true,
               detail: { tweetId: tweetId },
             })
-          );
+        );
     }
 
     unapproveTweet(tweetId){
@@ -69,6 +78,7 @@ export default class TweetCard extends Component {
         let { tweet } = this.props;
         const { likeCount } = this.state;
         const { liked } = this.state;
+        const { mod } = this.state;
 
         const Jwt = getClaim("role");
 
@@ -89,6 +99,7 @@ export default class TweetCard extends Component {
                 <div className="tweet-content">
                     {tweet.tweetContent}
                 </div>
+                {mod == false && (
                 <div className="tweet-interaction">
                     <div className="icon"><FaRegComment/></div>
                     {
@@ -101,7 +112,8 @@ export default class TweetCard extends Component {
                     <div className="icon"><AiOutlineShareAlt/></div>
                     <div className="trash-icon" onClick={() => this.deleteTweet(tweet.id)}><BsTrash/></div>
                 </div>
-                {Jwt == "Moderator" && (
+                )}
+                {Jwt == "Moderator" && mod == true && (
                     <div className="tweet-interaction">              
                         <div className="icon" onClick={() => this.approveTweet(tweet.id)}><FcCheckmark/></div>
                         <div className="cancel-icon" onClick={() => this.unapproveTweet(tweet.id)}><ImCancelCircle/></div>

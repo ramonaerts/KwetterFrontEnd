@@ -44,7 +44,7 @@ export default class Timeline extends Component {
               :
               <div>
                 {tweets.map((tweet) => (
-                  <TweetCard tweet={tweet}/>
+                  <TweetCard tweet={tweet} mod={false}/>
                 ))}
               </div>
             }  

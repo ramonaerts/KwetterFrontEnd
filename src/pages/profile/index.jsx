@@ -54,12 +54,20 @@ export default class Timeline extends Component {
     var newTweets = tweets.filter(function(e) { return e.id !== tweetId });
 
     this.setState({ tweets: newTweets });
+
+    window.dispatchEvent(
+      new CustomEvent("refresh-likes")
+    );
   }
 
   async refreshTweets(){
     const tweets = await TweetService.GetProfileTweets(this.state.user.id);
 
     this.setState({ tweets: tweets });
+
+    window.dispatchEvent(
+      new CustomEvent("refresh-likes")
+    );
   }
   
   render(){
@@ -101,7 +109,7 @@ export default class Timeline extends Component {
               :
               <div>
                 {tweets.map((tweet) => (
-                  <TweetCard tweet={tweet}/>
+                  <TweetCard tweet={tweet} mod={false}/>
                 ))}
               </div>
             }         
