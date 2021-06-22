@@ -86,7 +86,12 @@ export default class TweetCard extends Component {
             <div className="tweet-card-container">
                 <div className="tweet-card-bar">
                     <div className="tweet-profile-container">
+                    {
+                        tweet.user.image === "default.png" ?
+                        <div className="tweet-profile-image" style={{ backgroundImage: `url(https://pbs.twimg.com/media/EEI178KWsAEC79p.jpg)`}}/>
+                        :
                         <div className="tweet-profile-image" style={{ backgroundImage: `url(http://20.84.34.70/profile/images/${tweet.user.image})`}}/>
+                    }
                         <div className="tweet-profile-names-container">
                             <div className="tweet-profile-name">{tweet.user.nickname}</div>
                             <div className="tweet-profile-link">@{tweet.user.username}</div>
