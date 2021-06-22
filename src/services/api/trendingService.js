@@ -1,7 +1,7 @@
 import Axios from "axios";
 import { getJwt } from "../jwt";
 
-const url = "https://localhost:50001/api/trending/";
+const url = "http://20.84.34.70/api/trending/";
 
 const config = {
     headers: {Authorization: `Bearer ${getJwt()}`}

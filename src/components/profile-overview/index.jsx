@@ -47,7 +47,7 @@ export default class ProfileOverview extends Component {
 
       return (
         <div className="profile-container">
-            <div className="profileimage" style={{ backgroundImage: `url(https://localhost:50001/profile/images/${user.image})`}}>
+            <div className="profileimage" style={{ backgroundImage: `url(http://20.84.34.70/profile/images/${user.image})`}}>
               {
                 user.self === true ?
                   <ImageEditModal user={user}/>
