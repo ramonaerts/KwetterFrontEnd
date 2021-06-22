@@ -1,7 +1,6 @@
 import Cookies from "universal-cookie";
 
 export function setJwt(jwt) {
-  console.log(jwt);
     const expirationDate = new Date();
     expirationDate.setHours(expirationDate.getHours() + 24);
   

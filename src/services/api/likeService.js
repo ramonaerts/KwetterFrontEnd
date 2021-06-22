@@ -9,7 +9,6 @@ const config = {
 
 class LikeService {
     async GetLikes(id){
-        console.log(id);
         var result = await Axios.get(url + id, config);
 
         return result.data.data;

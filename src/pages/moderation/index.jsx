@@ -67,7 +67,6 @@ export default class Timeline extends Component {
   
   render(){
     let { tweets } = this.state;
-    console.log(tweets);
   
       if (this.state.isLoading){
         return <div className="loading"/>

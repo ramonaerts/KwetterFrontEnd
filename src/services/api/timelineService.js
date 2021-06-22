@@ -11,9 +11,6 @@ class TimelineService {
     async GetTimelineTweets(){
         var result = await Axios.get(url+ "timeline", config);
 
-        console.log("here?");
-        console.log(result);
-
         return result.data.data;
     }
 }

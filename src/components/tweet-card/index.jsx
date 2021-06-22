@@ -93,7 +93,7 @@ export default class TweetCard extends Component {
                         </div>
                     </div>
                     <div className="date">
-                        27-05-2021
+                        {tweet.tweetDateTime}
                     </div>
                 </div>
                 <div className="tweet-content">
@@ -110,7 +110,9 @@ export default class TweetCard extends Component {
                     }                
                     <div className="icon"><AiOutlineRetweet/></div>
                     <div className="icon"><AiOutlineShareAlt/></div>
+                    {tweet.ownTweet == true && (
                     <div className="trash-icon" onClick={() => this.deleteTweet(tweet.id)}><BsTrash/></div>
+                    )}
                 </div>
                 )}
                 {Jwt == "Moderator" && mod == true && (

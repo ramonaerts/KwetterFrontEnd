@@ -15,7 +15,6 @@ export default class ProfileOverview extends Component {
   
   async componentDidMount(){    
     const followCounts = await FollowService.GetFollowCounts(this.props.user.id);
-    console.log(followCounts);
 
     this.setState({ followCounts: followCounts, isLoading: false });
 

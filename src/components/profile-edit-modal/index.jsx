@@ -45,8 +45,6 @@ export default class ProfileEditModal extends Component {
 
     const formDataObj = Object.fromEntries(formData.entries());
 
-    console.log(formDataObj);
-
     await ProfileService.EditProfile(formDataObj);
   }
   

@@ -17,7 +17,6 @@ export default class Login extends Component {
   }
 
   async login(event) {
-    console.log("login");
     event.preventDefault();
 
     const formData = new FormData(event.target);
@@ -27,13 +26,10 @@ export default class Login extends Component {
 
     document.getElementById("authform").reset();
 
-    console.log(result);
-
     if(result.isSuccess === true) window.location.pathname = "/timeline";
   }
 
   async register(event) {
-    console.log("register");
     event.preventDefault();
 
     const formData = new FormData(event.target);

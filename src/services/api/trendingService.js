@@ -11,8 +11,6 @@ class TrendingService {
     async GetTopTrends(){
         var result = await Axios.get(url + "top", config);
 
-        console.log(result.data);
-
         return result.data.data;
     }
 }
