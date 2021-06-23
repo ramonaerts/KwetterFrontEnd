@@ -35,8 +35,13 @@ export default class Login extends Component {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    const formDataObj = Object.fromEntries(formData.entries());
+    let formDataObj = Object.fromEntries(formData.entries());
 
+    if (formDataObj.password != formDataObj.confirmpassword) {
+      toast.error("Password don't match.");
+      return;
+    }
+    
     await UserService.Register(formDataObj);
 
     document.getElementById("authform").reset();

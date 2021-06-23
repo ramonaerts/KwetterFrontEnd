@@ -22,7 +22,7 @@ class UserService {
                 throw error;
             }
             if(error.response.status === 304){
-                toast.error("Your data is not unique or passwords dont match.");
+                toast.error("This email is already in use.");
                 throw error;
             }
             if(error.response.status === 400 || error.response.status === 502){
