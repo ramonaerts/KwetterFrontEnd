@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
+import { toast } from "react-toastify";
 import AuthService from "../../services/api/authService";
 import UserService from "../../services/api/userService";
 import "./index.css";
@@ -24,9 +25,10 @@ export default class Login extends Component {
 
     const result = await AuthService.Login(formDataObj);
 
-    document.getElementById("authform").reset();
-
-    if(result.isSuccess === true) window.location.pathname = "/timeline";
+    if(result.isSuccess === true) {
+      document.getElementById("authform").reset();
+      window.location.pathname = "/timeline";      
+    }
   }
 
   async register(event) {
