@@ -41,6 +41,8 @@ class ProfileService {
     async EditProfile(data){
         var result = await Axios.put(url + "edit", data, config)
         .then(result => {
+            toast.success("Profile edited successfully.");
+
             return result.data;
         })
         .catch(function (error) {

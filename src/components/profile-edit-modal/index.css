@@ -41,6 +41,10 @@
     border: none;
 }
 
+.confirm-profile-button:disabled {
+  background-color:#5c339d;
+}
+
 .confirm-profile-button:hover {
     cursor: pointer;
     background-color:#6941aa;

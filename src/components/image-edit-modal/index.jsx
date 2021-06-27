@@ -91,7 +91,7 @@ export default class ImageEditModal extends Component {
                             <Form.Control name="tweetcontent" type="file" accept="image/x-png,image/gif,image/jpeg" onChange={this.onImageChange}/>
                             {filename}
                         </Form.Label>    
-                        <img className="imagepreview" src={preview} alt="example"/>                    
+                        <img className="imagepreview" src={preview}/>                    
                     </Modal.Body>
                     <Modal.Footer>
                         <Button className="confirm-profile-button" type="submit" disabled={submitImage}>Confirm changes</Button>

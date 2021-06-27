@@ -13,8 +13,7 @@ export default class Header extends Component {
             <input placeholder="Search..." type="text" className="search"/>
             <Nav className="mr-auto">
               <Nav.Link href={RouterPaths.Timeline}>Timeline</Nav.Link>
-              {/* <Nav.Link href="#trending">Trending</Nav.Link> */}
-              <Nav.Link href={"profile/" + localStorage.getItem("username")}>Profile</Nav.Link>
+              <Nav.Link href={"/profile/" + localStorage.getItem("username")}>Profile</Nav.Link>
               {Jwt == "Moderator" && (
                 <Nav.Link href={RouterPaths.Moderation}>Moderation</Nav.Link>
               )}
